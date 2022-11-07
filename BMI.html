@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/BMI.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+
+<body>
+    <div class="All">
+
+        <div class="BMI_box">
+            <h1>BMI計算器</h1>
+            <div class="input">
+                <input placeholder="請輸入您的身高" type="text" class="cm"><span>[公分]</span>
+                <input placeholder="請輸入您的體重" type="text" class="kg"><span>[公斤]</span>
+            </div>
+
+            <div class="btn">
+                <button class="math">開始計算</button>
+                <button class="clear">清除資料</button>
+            </div>
+
+        </div>
+        <div class="sug_box">
+            <div class="sug_area">
+                <p class="sug_BMI"></p>
+                <p class="sug_situation">您的身體狀態是:</p>
+                <p class="sug_sug">建議:</p>
+            </div>
+            <div class="icon_area"></div>
+        </div>
+        <img src="../圖庫/卡比.jpg" alt="">
+    </div>
+
+
+
+
+    <script>
+        var math = document.querySelector('.math');
+        var clear = document.querySelector('.clear');
+        var inputcm = document.querySelector('.cm');
+        var inputkg = document.querySelector('.kg');
+        var sug_box = document.querySelector('.sug_box');
+        var sug_text_BMI = document.querySelector('.sug_BMI');
+        var sug_text_situation = document.querySelector('.sug_situation');
+        var sug_text_sug = document.querySelector('.sug_sug');
+
+        math.onclick = function () {
+            let get_cm = inputcm.value;
+            let get_kg = inputkg.value;
+            let BMI = (get_kg / ((get_cm / 100) * (get_cm / 100)));
+            let sug = "";
+            let situation = "";
+
+            if (BMI > 0 && get_cm > 0 && (get_cm.trim()) !== "" && !isNaN(get_cm) && !isNaN(get_kg) && Number.isInteger(Number(get_cm)) && Number.isInteger(Number(get_kg))) {
+                if ((Math.round(BMI * 10) / 10) >= 35) {
+                    situation = "你真的是有夠胖ㄝ";
+                    sug = "你需要每天上健身房，並且控制飲食，瘋狂運動吧兄弟。";
+                }
+                else if ((Math.round(BMI * 10) / 10) >= 30) {
+                    situation = "你還滿胖的ㄛ";
+                    sug = "少吃點油膩食物，一周至少運動5天吧。";
+                }
+                else if ((Math.round(BMI * 10) / 10) >= 27) {
+                    situation = "你有點胖歐";
+                    sug = "少吃點油膩食物，一周至少運動3天吧。";
+                }
+                else if ((Math.round(BMI * 10) / 10) >= 24) {
+                    situation = "你超過了標準一點點，微胖";
+                    sug = "多運動瘦瘦身吧。";
+                }
+                else if ((Math.round(BMI * 10) / 10) < 24 && (Math.round(BMI * 10) / 10) >= 18.5) {
+                    situation = "你身材很標準捏 :D";
+                    sug = "繼續保持阿身材，努力練出六塊腹肌。";
+                }
+                else {
+                    situation = "你太瘦喇兄弟!";
+                    sug = "多吃點多吃點多吃點。";
+                }
+                sug_box.classList="sug_box_animate";
+                sug_text_BMI.innerHTML = "您的BMI值為: " + (Math.round(BMI * 10) / 10);
+                sug_text_situation.innerHTML = "您的身體狀態為: " + situation;
+                sug_text_sug.innerHTML = "建議:<br>"+ sug;
+                sug_box.style.display = "block";
+            }
+            else {
+                alert("您輸入的資訊有誤，請檢查並重新輸入:\n資訊僅接受整數\n身高(單位:公分 CM)\n體重(單位:公斤 KG)");
+            }
+
+
+
+        }
+
+
+
+        clear.onclick = function () {
+            sug_box.style.display = "none";
+            inputcm.value = "";
+            inputkg.value = "";
+        }
+
+    </script>
+</body>
+
+</html>

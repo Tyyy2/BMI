@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.All {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+
+
+
+.BMI_box {
+    height: 300px;
+    width: 400px;
+    background-color: lightblue;
+    border-radius: 20px;
+    border: 5px solid rgb(218, 218, 218);
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+input~span {
+    font-weight: bold;
+}
+
+.kg {
+    margin-top: 20px;
+}
+
+button {
+    border-radius: 5px;
+    border: 2px solid black;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.math:hover {
+    background-color: yellow;
+    transform: scale(1.5) translateX(-10px);
+}
+
+.clear:hover {
+    background-color: yellow;
+    transform: scale(1.5) translateX(10px);
+}
+
+.sug_box {
+    height: 200px;
+    width: 800px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    border: 5px solid rgb(250, 144, 5);
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    opacity: 0;
+    transition: 1s;
+
+    font: {
+        size: 18px;
+        weight: bold;
+    }
+
+}
+
+.sug_box_animate {
+    height: 200px;
+    width: 800px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    border: 5px solid rgb(250, 144, 5);
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    opacity: 1;
+    transition: 1s;
+
+    font: {
+        size: 18px;
+        weight: bold;
+    }
+
+}
+
+.sug_area {
+    height: 95%;
+    width: 50%;
+    border-radius: 20px;
+
+}
+
+.sug_area p {
+    margin-left: 10px;
+}
+
+img {
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes backin_left {}
